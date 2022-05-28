@@ -1,21 +1,20 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import multiply from 'react-native-custom-haptics';
 import Main from './Main';
+// import { HapticsProvider } from 'react-native-custom-haptics';
 
 export default function App() {
   const [result, setResult] = React.useState<number | undefined>();
 
-  React.useEffect(() => {
-    multiply(24, 3).then(setResult);
-  }, []);
+  // React.useEffect(() => {
+  //   multiply(24, 3).then(setResult);
+  // }, []);
 
   return (
-    <View style={styles.container}>
-      <Main />
-      <Text>{result}</Text>
-    </View>
+    // <HapticsProvider>
+    <Main />
+    // </HapticsProvider>
   );
 }
 
