@@ -1,21 +1,3 @@
-// import React from 'react';
-// import * as Haptics from 'expo-haptics';
-// import { Button, Text, View } from 'react-native';
-
-// const HapticsProvider = () => {
-//   return (
-//     <View>
-//       <Text>HapticsProvider</Text>
-//       <Button
-//         title="Press me"
-//         onPress={() => Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy)}
-//       ></Button>
-//     </View>
-//   );
-// };
-
-// export default HapticsProvider;
-
 import React from 'react';
 import { Vibration } from 'react-native';
 import * as Haptics from 'expo-haptics';
