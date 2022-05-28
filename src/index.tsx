@@ -1,3 +1,7 @@
-export function multiply(a: number, b: number): Promise<number> {
-  return Promise.resolve(a * b);
-}
+// import { HapticsProvider, useHaptics } from './HapticsProvider';
+
+// export { HapticsProvider, useHaptics };
+
+import { HapticsProvider, useHaptics } from './HapticsProvider';
+
+export { HapticsProvider, useHaptics };
