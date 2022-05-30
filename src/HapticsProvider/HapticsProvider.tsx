@@ -5,14 +5,14 @@ import { getHapticImpactEnum, timer } from './utils';
 import { Impact } from './types';
 
 interface IHapticsContext {
-  run: (...pattern: Impact[]) => void;
+  trigger: (...pattern: Impact[]) => void;
   stop: () => void;
   isRunning: boolean;
 }
 
 const initialContext: IHapticsContext = {
   isRunning: false,
-  run: () => {},
+  trigger: () => {},
   stop: () => {},
 };
 
@@ -70,7 +70,7 @@ const HapticsProvider = ({ children }: IHapticsProvider) => {
     }
   }, [startRunning]);
 
-  function run(...pattern: Impact[]) {
+  function trigger(...pattern: Impact[]) {
     setPattern(pattern);
     setStartRunning(true);
   }
@@ -82,7 +82,7 @@ const HapticsProvider = ({ children }: IHapticsProvider) => {
   }
 
   return (
-    <HapticsContext.Provider value={{ isRunning, run, stop }}>
+    <HapticsContext.Provider value={{ isRunning, trigger, stop }}>
       {children}
     </HapticsContext.Provider>
   );

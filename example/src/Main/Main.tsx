@@ -1,24 +1,18 @@
 import React from 'react';
-import { Button, View, Text } from 'react-native';
-import { HapticsProvider, useHaptics } from 'react-native-custom-haptics';
-// import HapticsProvider from 'react-native-custom-haptics';
+import { Button, View, Text, StyleSheet } from 'react-native';
+import { useHaptics } from 'react-native-custom-haptics';
 
 interface IMain {}
 
 const Main = (props: IMain) => {
-  const { run, stop, isRunning } = useHaptics();
+  const { trigger, stop, isRunning } = useHaptics();
   return (
-    <View>
-      <Text>ftroafjds</Text>
-      <Text>ftroafjds</Text>
-      <Text>ftroafjds</Text>
-      <Text>ftroafjds</Text>
-      <Text>ftroafjds</Text>
+    <View style={styles.container}>
       <Button
-        title="Press meeee"
+        title="Press me"
         onPress={() => {
           if (isRunning) stop();
-          run('light', 300, 'heavy');
+          trigger('light', 300, 'heavy');
         }}
       />
     </View>
@@ -26,3 +20,16 @@ const Main = (props: IMain) => {
 };
 
 export default Main;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  box: {
+    width: 60,
+    height: 60,
+    marginVertical: 20,
+  },
+});
