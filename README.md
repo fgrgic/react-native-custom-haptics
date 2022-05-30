@@ -104,10 +104,11 @@ export default PrimaryButton;
 
 ## Package Exports
 
-| Name              | description                                 |
-| ----------------- | ------------------------------------------- |
-| `HapticsProvider` | wrapper for the app                         |
-| `useHaptics`      | set of functions to trigger haptic patterns |
+| Name               | description                                            |
+| ------------------ | ------------------------------------------------------ |
+| `HapticsProvider`  | wrapper for the app                                    |
+| `useHaptics`       | set of functions to trigger haptic patterns            |
+| `HapticImpactType` | type of haptic impact. Read more [here](#impact-type). |
 
 ### `useHaptics`
 
