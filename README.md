@@ -106,7 +106,7 @@ export default PrimaryButton;
 
 ## Package Exports
 
-| Name               | description                                                      |
+| name               | description                                                      |
 | ------------------ | ---------------------------------------------------------------- |
 | `HapticsProvider`  | wrapper for the app                                              |
 | `useHaptics`       | set of functions to trigger haptic patterns                      |
@@ -115,7 +115,7 @@ export default PrimaryButton;
 
 ### `useHaptics`
 
-|                                                        |                                                                                                    |
+| exported value                                         | description                                                                                        |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
 | `trigger(pattern: Impact[], options?: HapticsOptions)` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type), [options](#options) |
 | `stop()`                                               | stops running the pattern if any exists                                                            |
