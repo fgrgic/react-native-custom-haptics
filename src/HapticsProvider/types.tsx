@@ -11,5 +11,5 @@ export type HapticImpact = HapticImpactStrength | HapticImpactSharpness;
 export type Impact = HapticImpact | VibrateLength;
 
 export interface HapticsOptions {
-  platforms?: PlatformOSType[];
+  platforms?: 'android' | 'ios';
 }

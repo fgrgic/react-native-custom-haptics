@@ -106,19 +106,20 @@ export default PrimaryButton;
 
 ## Package Exports
 
-| Name               | description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `HapticsProvider`  | wrapper for the app                                    |
-| `useHaptics`       | set of functions to trigger haptic patterns            |
-| `HapticImpactType` | type of haptic impact. Read more [here](#impact-type). |
+| Name               | description                                                      |
+| ------------------ | ---------------------------------------------------------------- |
+| `HapticsProvider`  | wrapper for the app                                              |
+| `useHaptics`       | set of functions to trigger haptic patterns                      |
+| `HapticImpactType` | type of haptic impact. Read more [here](#impact-type).           |
+| `HapticsOptions`   | type of additional, optional options. Read more [here](#options) |
 
 ### `useHaptics`
 
-|                              |                                                                                      |
-| ---------------------------- | ------------------------------------------------------------------------------------ |
-| `trigger(pattern: Impact[])` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type).       |
-| `stop()`                     | stops running the pattern if any exists                                              |
-| `isRunning`                  | boolean that is `true` if any haptic pattern is currently running, `false` otherwise |
+|                                                        |                                                                                                    |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `trigger(pattern: Impact[], options?: HapticsOptions)` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type), [options](#options) |
+| `stop()`                                               | stops running the pattern if any exists                                                            |
+| `isRunning`                                            | boolean that is `true` if any haptic pattern is currently running, `false` otherwise               |
 
 ### Impact Type
 
@@ -133,6 +134,13 @@ Impact can be:
 ```ts
 type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | number;
 ```
+
+### Options
+
+`options` is an optional parameter in trigger function. It's an object of `HapticsOptions` type.
+| option | description | values |default |
+| --- | --- | --- | --- |
+|platforms|array containing platforms where the pattern should run|`'ios' \| 'android'[]`|| undefined (runs on ios and android) |
 
 ## License
 

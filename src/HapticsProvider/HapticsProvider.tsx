@@ -82,7 +82,11 @@ const HapticsProvider = ({ children }: IHapticsProvider) => {
   }
 
   const allowedToRun = (): boolean => {
-    if (!options?.platforms) return true;
+    if (
+      (!options?.platforms && Platform.OS === 'android') ||
+      Platform.OS === 'ios'
+    )
+      return true;
     if (
       options &&
       options.platforms &&
