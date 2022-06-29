@@ -12,7 +12,7 @@ const Main = (props: IMain) => {
         title="Press me"
         onPress={() => {
           if (isRunning) stop();
-          trigger(['light', 300, 'heavy']);
+          trigger(['select', 300, 'select', 300, 'heavy', 300, 'heavy']);
         }}
       />
     </View>
