@@ -1,5 +1,7 @@
 # react-native-custom-haptics
 
+[Updating from 0.1.0 to 1.0.0.](#updating)
+
 Custom haptic patterns for React Native. Built on top of `expo-haptics` package.
 
 ## Installation
@@ -142,6 +144,14 @@ type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | 'select' | number;
 | option | description | values |default |
 | --- | --- | --- | --- |
 |platforms|array containing platforms where the pattern should run|`'ios' \| 'android'[]`| `undefined` (runs on ios and android) |
+
+## Updating
+
+### `1.0.0`
+
+If you were using the pre-release `0.1.0`, update introduces one breaking change to the trigger function:
+
+`trigger(...pattern: HapticImpactType[])` → `trigger(pattern: HapticImpactType[], options: HapticsOptions)`
 
 ## License
 
