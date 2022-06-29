@@ -1,6 +1,6 @@
 {
   "name": "react-native-custom-haptics",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Custom haptic patterns for React Native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
