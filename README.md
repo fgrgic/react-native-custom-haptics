@@ -61,7 +61,7 @@ const Screen = () => {
 
   return (
     <View>
-      <Button title="Press Me" onPress={() => trigger(...SUCCESS_PATTERN)} />
+      <Button title="Press Me" onPress={() => trigger(SUCCESS_PATTERN)} />
     </View>
   );
 };
@@ -93,7 +93,7 @@ const PrimaryButton = () => {
   React.useEffect(() => () => stop(), [])
 
   return (
-    <Pressable style={...} onPress={() => trigger(...patterns.SUCCESS)}>
+    <Pressable style={...} onPress={() => trigger(patterns.SUCCESS)}>
       <Text>Press</Text>
     </Pressable>
   )
@@ -114,11 +114,11 @@ export default PrimaryButton;
 
 ### `useHaptics`
 
-|                                 |                                                                                      |
-| ------------------------------- | ------------------------------------------------------------------------------------ |
-| `trigger(...pattern: Impact[])` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type).       |
-| `stop()`                        | stops running the pattern if any exists                                              |
-| `isRunning`                     | boolean that is `true` if any haptic pattern is currently running, `false` otherwise |
+|                              |                                                                                      |
+| ---------------------------- | ------------------------------------------------------------------------------------ |
+| `trigger(pattern: Impact[])` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type).       |
+| `stop()`                     | stops running the pattern if any exists                                              |
+| `isRunning`                  | boolean that is `true` if any haptic pattern is currently running, `false` otherwise |
 
 ### Impact Type
 
