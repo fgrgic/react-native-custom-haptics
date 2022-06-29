@@ -61,7 +61,7 @@ const Screen = () => {
 
   return (
     <View>
-      <Button title="Press Me" onPress={() => trigger(SUCCESS_PATTERN)} />
+      <Button title="Press Me" onPress={() => trigger([SUCCESS_PATTERN])} />
     </View>
   );
 };
@@ -93,7 +93,7 @@ const PrimaryButton = () => {
   React.useEffect(() => () => stop(), [])
 
   return (
-    <Pressable style={...} onPress={() => trigger(patterns.SUCCESS)}>
+    <Pressable style={...} onPress={() => trigger([patterns.SUCCESS])}>
       <Text>Press</Text>
     </Pressable>
   )
@@ -129,10 +129,11 @@ Impact can be:
 - `"medium"`: medium impact
 - `"heavy"`: heavy impact
 - `"vibrate"`: vibrate for 400ms (default value for Android and the only possible valuse for iOS)
+- `"select"`: select impact (softer)
 - `number`: set the length of vibration in `ms` on Android, iOS will always vibrate for 400ms.
 
 ```ts
-type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | number;
+type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | 'select' | number;
 ```
 
 ### Options
