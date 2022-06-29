@@ -141,7 +141,7 @@ type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | 'select' | number;
 `options` is an optional parameter in trigger function. It's an object of `HapticsOptions` type.
 | option | description | values |default |
 | --- | --- | --- | --- |
-|platforms|array containing platforms where the pattern should run|`'ios' \| 'android'[]`| undefined (runs on ios and android) |
+|platforms|array containing platforms where the pattern should run|`'ios' \| 'android'[]`| `undefined` (runs on ios and android) |
 
 ## License
 
