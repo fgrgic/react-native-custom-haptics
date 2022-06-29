@@ -1,4 +1,9 @@
 import { HapticsProvider, useHaptics } from './HapticsProvider';
-import { Impact } from './HapticsProvider/types';
+import { Impact, HapticsOptions } from './HapticsProvider/types';
 
-export { HapticsProvider, useHaptics, Impact as HapticImpactType };
+export {
+  HapticsProvider,
+  useHaptics,
+  Impact as HapticImpactType,
+  HapticsOptions,
+};

@@ -15,7 +15,11 @@ export async function hapticsPattern(...pattern: Impact[]) {
         Vibration.vibrate();
         // Use native impact type
       } else {
-        await Haptics.impactAsync(getHapticImpactEnum(e));
+        if (e === 'select') {
+          await Haptics.selectionAsync();
+        } else {
+          await Haptics.impactAsync(getHapticImpactEnum(e));
+        }
       }
       // Await for the pause
     } else {

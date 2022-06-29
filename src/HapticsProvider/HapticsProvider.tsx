@@ -1,11 +1,11 @@
 import React from 'react';
-import { Vibration } from 'react-native';
+import { Platform, Vibration } from 'react-native';
 import * as Haptics from 'expo-haptics';
 import { getHapticImpactEnum, timer } from './utils';
-import { Impact } from './types';
+import { HapticsOptions, Impact } from './types';
 
 interface IHapticsContext {
-  trigger: (...pattern: Impact[]) => void;
+  trigger: (pattern: Impact[], options?: HapticsOptions) => void;
   stop: () => void;
   isRunning: boolean;
 }
@@ -26,6 +26,9 @@ const HapticsProvider = ({ children }: IHapticsProvider) => {
   const [isRunning, setIsRunning] = React.useState(false);
   const [pattern, setPattern] = React.useState<Impact[]>();
   const [startRunning, setStartRunning] = React.useState(false);
+  const [options, setOptions] = React.useState<HapticsOptions | undefined>(
+    undefined
+  );
 
   async function hapticImpact(...pattern: Impact[]) {
     setIsRunning(true);
@@ -61,19 +64,38 @@ const HapticsProvider = ({ children }: IHapticsProvider) => {
   }
 
   React.useEffect(() => {
-    if (startRunning) {
-      if (!isRunning) {
-        if (pattern) {
-          hapticImpact(...pattern);
+    if (allowedToRun()) {
+      if (startRunning) {
+        if (!isRunning) {
+          if (pattern) {
+            hapticImpact(...pattern);
+          }
         }
       }
     }
   }, [startRunning]);
 
-  function trigger(...pattern: Impact[]) {
+  function trigger(pattern: Impact[], options?: HapticsOptions) {
     setPattern(pattern);
     setStartRunning(true);
+    setOptions(options);
   }
+
+  const allowedToRun = (): boolean => {
+    if (
+      (!options?.platforms && Platform.OS === 'android') ||
+      Platform.OS === 'ios'
+    )
+      return true;
+    if (
+      options &&
+      options.platforms &&
+      options.platforms.includes(Platform.OS)
+    ) {
+      return true;
+    }
+    return false;
+  };
 
   function stop() {
     setStartRunning(false);

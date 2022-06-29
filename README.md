@@ -2,6 +2,8 @@
 
 Custom haptic patterns for React Native. Built on top of `expo-haptics` package.
 
+[Updating from previous versions](#updating)
+
 ## Installation
 
 This module uses `expo-haptics` as a peer dependency
@@ -61,7 +63,7 @@ const Screen = () => {
 
   return (
     <View>
-      <Button title="Press Me" onPress={() => trigger(...SUCCESS_PATTERN)} />
+      <Button title="Press Me" onPress={() => trigger(SUCCESS_PATTERN)} />
     </View>
   );
 };
@@ -93,7 +95,7 @@ const PrimaryButton = () => {
   React.useEffect(() => () => stop(), [])
 
   return (
-    <Pressable style={...} onPress={() => trigger(...patterns.SUCCESS)}>
+    <Pressable style={...} onPress={() => trigger(patterns.SUCCESS)}>
       <Text>Press</Text>
     </Pressable>
   )
@@ -106,19 +108,20 @@ export default PrimaryButton;
 
 ## Package Exports
 
-| Name               | description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `HapticsProvider`  | wrapper for the app                                    |
-| `useHaptics`       | set of functions to trigger haptic patterns            |
-| `HapticImpactType` | type of haptic impact. Read more [here](#impact-type). |
+| name               | description                                                       |
+| ------------------ | ----------------------------------------------------------------- |
+| `HapticsProvider`  | wrapper for the app                                               |
+| `useHaptics`       | set of functions to trigger haptic patterns                       |
+| `HapticImpactType` | type of haptic impact. Read more [here](#impact-type).            |
+| `HapticsOptions`   | type of additional, optional options. Read more [here](#options). |
 
 ### `useHaptics`
 
-|                                 |                                                                                      |
-| ------------------------------- | ------------------------------------------------------------------------------------ |
-| `trigger(...pattern: Impact[])` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type).       |
-| `stop()`                        | stops running the pattern if any exists                                              |
-| `isRunning`                     | boolean that is `true` if any haptic pattern is currently running, `false` otherwise |
+| exported value                                         | description                                                                                        |
+| ------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| `trigger(pattern: Impact[], options?: HapticsOptions)` | triggers a haptics pattern passed as an argument. [Impact Type](#impact-type), [options](#options) |
+| `stop()`                                               | stops running the pattern if any exists                                                            |
+| `isRunning`                                            | boolean that is `true` if any haptic pattern is currently running, `false` otherwise               |
 
 ### Impact Type
 
@@ -128,11 +131,27 @@ Impact can be:
 - `"medium"`: medium impact
 - `"heavy"`: heavy impact
 - `"vibrate"`: vibrate for 400ms (default value for Android and the only possible valuse for iOS)
+- `"select"`: select impact (softer)
 - `number`: set the length of vibration in `ms` on Android, iOS will always vibrate for 400ms.
 
 ```ts
-type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | number;
+type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | 'select' | number;
 ```
+
+### Options
+
+`options` is an optional parameter in trigger function. It's an object of `HapticsOptions` type.
+| option | description | values |default |
+| --- | --- | --- | --- |
+|platforms|array containing platforms where the pattern should run|`'ios' \| 'android'[]`| `undefined` (runs on ios and android) |
+
+## Updating
+
+### `1.0.0`
+
+If you were using the pre-release `0.1.0`, update introduces one breaking change to the trigger function:
+
+`trigger(...pattern: HapticImpactType[])` → `trigger(pattern: HapticImpactType[], options?: HapticsOptions)`
 
 ## License
 
