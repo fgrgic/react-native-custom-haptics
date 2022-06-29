@@ -61,7 +61,7 @@ const Screen = () => {
 
   return (
     <View>
-      <Button title="Press Me" onPress={() => trigger([SUCCESS_PATTERN])} />
+      <Button title="Press Me" onPress={() => trigger(SUCCESS_PATTERN)} />
     </View>
   );
 };
@@ -93,7 +93,7 @@ const PrimaryButton = () => {
   React.useEffect(() => () => stop(), [])
 
   return (
-    <Pressable style={...} onPress={() => trigger([patterns.SUCCESS])}>
+    <Pressable style={...} onPress={() => trigger(patterns.SUCCESS)}>
       <Text>Press</Text>
     </Pressable>
   )
