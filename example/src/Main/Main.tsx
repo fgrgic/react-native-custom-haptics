@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Text, StyleSheet } from 'react-native';
+import { Button, View, StyleSheet } from 'react-native';
 import { useHaptics } from 'react-native-custom-haptics';
 
 interface IMain {}

@@ -82,19 +82,18 @@ const HapticsProvider = ({ children }: IHapticsProvider) => {
   }
 
   const allowedToRun = (): boolean => {
+    let canRun = false;
     if (
-      (!options?.platforms && Platform.OS === 'android') ||
-      Platform.OS === 'ios'
+      !options?.platforms &&
+      (Platform.OS === 'android' || Platform.OS === 'ios')
     )
-      return true;
-    if (
-      options &&
-      options.platforms &&
-      options.platforms.includes(Platform.OS)
-    ) {
-      return true;
+      canRun = true;
+    else if (options && options.platforms) {
+      options?.platforms?.forEach((platform) => {
+        if (platform === Platform.OS) canRun = true;
+      });
     }
-    return false;
+    return canRun;
   };
 
   function stop() {
