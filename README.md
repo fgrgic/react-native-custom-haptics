@@ -123,7 +123,7 @@ export default PrimaryButton;
 | `stop()`                                               | stops running the pattern if any exists                                                            |
 | `isRunning`                                            | boolean that is `true` if any haptic pattern is currently running, `false` otherwise               |
 
-### Impact Type
+### Haptic Impact Type
 
 Impact can be:
 
@@ -135,7 +135,13 @@ Impact can be:
 - `number`: set the length of vibration in `ms` on Android, iOS will always vibrate for 400ms.
 
 ```ts
-type Impact = 'light' | 'medium' | 'heavy' | 'vibrate' | 'select' | number;
+type HapticImpactType =
+  | 'light'
+  | 'medium'
+  | 'heavy'
+  | 'vibrate'
+  | 'select'
+  | number;
 ```
 
 ### Options
@@ -155,4 +161,4 @@ If you were using the pre-release `0.1.0`, update introduces one breaking change
 
 ## License
 
-MIT
+[MIT](./LICENSE)
